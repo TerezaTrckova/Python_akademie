@@ -4,7 +4,7 @@ author: Tereza Trčková
 email: terda.trckova@seznam.cz
 discord: tereza_trckova
 """
-# Definice registrovaných uživatelů
+# Registrovaní uživatelé
 USERS = {
     "bob": "123",
     "ann": "pass123",
@@ -45,14 +45,14 @@ username = input("username: ")
 password = input("password: ")
 
 # Ověření přihlašovacích údajů
-if username not in USERS or USERS[username] != password:
+if username in USERS and USERS[username] == password:
+    print("-" * 40)
+    print(f"Welcome to the app, {username}")
+    print(f"We have {len(TEXTS)} texts to be analyzed.")
+    print("-" * 40)
+else:
     print("unregistered user, terminating the program..")
     exit()
-
-print("-" * 40)
-print(f"Welcome to the app, {username}")
-print(f"We have {len(TEXTS)} texts to be analyzed.")
-print("-" * 40)
 
 # Výběr textu k analýze
 try:
