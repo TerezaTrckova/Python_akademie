@@ -1,7 +1,7 @@
 # Textový analyzátor
 ## Zadání projektu
 Cílem  je vytvořit textový analyzátor - program, který se bude umět prokousat libovolně dlouhým textem a zjistit o něm různé informace.
-Program bude obsahovat následující:
+#### Program bude obsahovat následující:
 Vyžádá si od uživatele přihlašovací jméno a heslo, zjistí, jestli zadané údaje odpovídají někomu z registrovaných uživatelů, pokud je registrovaný, pozdrav jej a umožni mu analyzovat texty, pokud není registrovaný, upozorni jej a ukonči program.
 Program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS:
 
