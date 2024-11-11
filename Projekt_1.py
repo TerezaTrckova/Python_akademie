@@ -1,18 +1,18 @@
 """
-projekt_1.py: první projekt do Engeto Online Python Akademie
+projekt_1.py: prvni projekt do Engeto Online Python Akademie
 author: Tereza Trčková
 email: terda.trckova@seznam.cz
 discord: tereza_trckova
 """
 
-# Registrovaní uživatelé
+# Registrovani uzivatele
 USERS = {
     "bob": "123",
     "ann": "pass123",
     "mike": "password123",
     "liz": "pass123"
 }
-# Texty k analýze
+# Texty k analyze
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
@@ -37,11 +37,11 @@ are found in multiple limestone layers, which lie some
 100 feet below the top of the butte. The fossils
 represent several varieties of perch, as well ''']
 
-# Získání přihlašovacích údajů od uživatele
+# Ziskani prihlasovacich udaju
 username = input("username: ")
 password = input("password: ")
 
-# Ověření přihlašovacích údajů
+# Overeni prihlasovacich udaju
 if username in USERS and USERS[username] == password:
     print("-" * 40)
     print(f"Welcome to the app, {username}")
@@ -51,7 +51,7 @@ else:
     print("unregistered user, terminating the program..")
     exit()
 
-# Výběr textu k analýze
+# Vyber textu k analyze
 text_choice = input("Enter a number btw. 1 and 3 to select: ")
 
 if text_choice.isdigit() and 1 <= int(text_choice) <= len(TEXTS):
@@ -60,10 +60,9 @@ else:
     print("Invalid input, terminating the program..")
     exit()
 
-# Výběr textu na základě volby uživatele
 selected_text = TEXTS[text_choice - 1]
 
-# Analýza vybraného textu
+# Analyza vybraneho textu
 words = selected_text.split()
 word_count = len(words)
 titlecase_words = 0
@@ -71,7 +70,6 @@ uppercase_words = 0
 lowercase_words = 0
 numeric_strings = []
 
-# Procházení slov a provádění analýzy
 for word in words:
     cleaned_word = word.strip(".,:;!?")
     if cleaned_word.isdigit():
@@ -83,10 +81,10 @@ for word in words:
     elif cleaned_word.islower():
         lowercase_words += 1
 
-# Výpočet sumy všech čísel v textu
+# Vypocet sumy cisel v textu
 sum_numbers = sum(numeric_strings)
 
-# Výpis výsledků analýzy
+# Vysledky analyzy
 print("-" * 40)
 print(f"There are {word_count} words in the selected text.")
 print(f"There are {titlecase_words} titlecase words.")
@@ -96,7 +94,7 @@ print(f"There are {len(numeric_strings)} numeric strings.")
 print(f"The sum of all the numbers {sum_numbers}")
 print("-" * 40)
 
-# Vytvoření sloupcového grafu pro četnost délek slov
+# Vytvoreni sloupcoveho grafu pro cetnost delek slov
 graph_data = {}
 for word in words:
     cleaned_word = word.strip(".,:;!?")
@@ -105,7 +103,6 @@ for word in words:
         graph_data[word_length] = 0
     graph_data[word_length] += 1
 
-# Výpis grafu četnosti délek slov
 print("LEN|  OCCURENCES  |NR.")
 print("-" * 40)
 for length, count in sorted(graph_data.items()):
