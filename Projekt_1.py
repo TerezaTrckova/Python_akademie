@@ -4,6 +4,7 @@ author: Tereza Trčková
 email: terda.trckova@seznam.cz
 discord: tereza_trckova
 """
+
 # Registrovaní uživatelé
 USERS = {
     "bob": "123",
@@ -34,11 +35,7 @@ a portion of the largest deposit of freshwater fish
 fossils in the world. The richest fossil fish deposits
 are found in multiple limestone layers, which lie some
 100 feet below the top of the butte. The fossils
-represent several varieties of perch, as well as
-other freshwater genera and herring similar to those
-in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.'''
-]
+represent several varieties of perch, as well ''']
 
 # Získání přihlašovacích údajů od uživatele
 username = input("username: ")
@@ -55,15 +52,15 @@ else:
     exit()
 
 # Výběr textu k analýze
-try:
-    text_choice = int(input("Enter a number btw. 1 and 3 to select: "))
-    if text_choice < 1 or text_choice > len(TEXTS):
-        print("Invalid number, terminating the program..")
-        exit()
-except ValueError:
+text_choice = input("Enter a number btw. 1 and 3 to select: ")
+
+if text_choice.isdigit() and 1 <= int(text_choice) <= len(TEXTS):
+    text_choice = int(text_choice)
+else:
     print("Invalid input, terminating the program..")
     exit()
 
+# Výběr textu na základě volby uživatele
 selected_text = TEXTS[text_choice - 1]
 
 # Analýza vybraného textu
@@ -76,7 +73,7 @@ numeric_strings = []
 
 # Procházení slov a provádění analýzy
 for word in words:
-    cleaned_word = word.strip(".,:;!?")  # Odstranění interpunkce na začátku a konci
+    cleaned_word = word.strip(".,:;!?")
     if cleaned_word.isdigit():
         numeric_strings.append(int(cleaned_word))
     elif cleaned_word.istitle():
@@ -86,6 +83,7 @@ for word in words:
     elif cleaned_word.islower():
         lowercase_words += 1
 
+# Výpočet sumy všech čísel v textu
 sum_numbers = sum(numeric_strings)
 
 # Výpis výsledků analýzy
@@ -101,14 +99,14 @@ print("-" * 40)
 # Vytvoření sloupcového grafu pro četnost délek slov
 graph_data = {}
 for word in words:
-    cleaned_word = word.strip(".,:;!?")  # Odstranění interpunkce na začátku a konci
+    cleaned_word = word.strip(".,:;!?")
     word_length = len(cleaned_word)
     if word_length not in graph_data:
         graph_data[word_length] = 0
     graph_data[word_length] += 1
 
+# Výpis grafu četnosti délek slov
 print("LEN|  OCCURENCES  |NR.")
 print("-" * 40)
 for length, count in sorted(graph_data.items()):
     print(f"{length:>3}|{'*' * count:<13}|{count}")
-
